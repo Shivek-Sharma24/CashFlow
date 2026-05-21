@@ -69,7 +69,7 @@ const Barchart = () => {
   if (chartData.length === 0)
     return (
       <Card className="bg-[#2D2D2D] lg:col-span-3">
-        <CardContent className="flex items-center justify-center h-[300px]">
+        <CardContent className="flex items-center justify-center h-75">
           <p className="text-gray-400">No expenses this month</p>
         </CardContent>
       </Card>
@@ -81,7 +81,7 @@ const Barchart = () => {
       </CardHeader>
 
       <CardContent>
-        <ChartContainer config={chartConfig} className="h-[300px] w-full">
+        <ChartContainer config={chartConfig} className="h-75 w-full">
           <BarChart
             accessibilityLayer
             data={filteredData}
@@ -95,13 +95,11 @@ const Barchart = () => {
             />
 
             <Bar dataKey="amount" fill="#49D193" radius={4} maxBarSize={40} minPointSize={25}>
-              {filteredData.map((entry, index) => (
+              {filteredData.map((_, index) => (
                 <Cell
                   key={`cell-${index}`}
                   fill="#49D193"
                   opacity={index > todayIndex ? 0.15 : 1} 
-                  // fill={index > todayIndex ? "#27272a" : "#49D193"}
-                  // opacity={index > todayIndex ? 0.4 : 1}
                 />
               ))}
             </Bar>
