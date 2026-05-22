@@ -8,6 +8,7 @@ import useMonthlyData from "@/Zustand/useMonthlyData"
 import useBarChart from "@/Zustand/useGetBarChart"
 import useGetPieChart from "@/Zustand/useGetPieChart"
 import { demoapi } from "@/Zustand/useSignup"
+import toast from "react-hot-toast"
 
 const categoryConfig: Record<
   Expense["category"],
@@ -46,6 +47,7 @@ export function ExpenseCard({ expense }: { expense: Expense }) {
         useGetPieChart.getState().fetchCategoryData();
       }, 500);
     } catch (err) {
+      toast.error("Failed to delete");
       console.error("Delete failed:", err)
     }
   }
