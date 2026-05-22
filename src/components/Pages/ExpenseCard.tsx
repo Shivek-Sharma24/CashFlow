@@ -4,10 +4,10 @@ import { useFetchExpense } from "@/Zustand/useFetchExpenses"
 import { cn } from "@/lib/utils"
 import { useState } from "react"
 import { Spinner } from "../ui/spinner"
-export const api = "http://localhost:5200"
 import useMonthlyData from "@/Zustand/useMonthlyData"
 import useBarChart from "@/Zustand/useGetBarChart"
 import useGetPieChart from "@/Zustand/useGetPieChart"
+import { demoapi } from "@/Zustand/useSignup"
 
 const categoryConfig: Record<
   Expense["category"],
@@ -34,7 +34,7 @@ export function ExpenseCard({ expense }: { expense: Expense }) {
   const handleDelete = async () => {
     setloading(true)
     try {
-      await fetch(`${api}/delete/${expense._id}`, {
+      await fetch(`${demoapi}/delete/${expense._id}`, {
         method:  "DELETE",
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       })
