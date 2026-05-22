@@ -1,7 +1,6 @@
 import { create } from "zustand";
 import axios from 'axios'
 import toast from "react-hot-toast";
-// export const demoapi ='https://cash-flow-server.vercel.app'
 export const demoapi = 'https://cash-flow-server.vercel.app'
 // Define types
 interface FormData {

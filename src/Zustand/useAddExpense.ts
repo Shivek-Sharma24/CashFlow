@@ -98,7 +98,7 @@ const useAddExpense = create<ExpenseStore>((set, get) => ({
         useBarChart.getState().fetchWeeklyData();
         useGetPieChart.getState().fetchCategoryData();
         useFetchExpense.getState().fetchExpenses(1 , selectedMonth , selectYear);
-      }, 500);                           // 👈 closes the dialog from outside
+      }, 700);                           //  closes the dialog from outside
     } catch (error) {
       toast.error('Failed to add expense, try again!')
       console.error('Error adding expense:', error)
